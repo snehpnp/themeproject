@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = ({ headerStatus, toggleHeaderStatus }) => {
 
-  const theme = localStorage.getItem('theme') ? JSON.parse(localStorage.getItem('theme')) : { fontColor: '#ffffff' };
+  const theme = localStorage.getItem('theme') 
 
   console.log("theme",theme.navbarColor);
 
@@ -10,7 +10,7 @@ const Navbar = ({ headerStatus, toggleHeaderStatus }) => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light" >
-        <div className="container-fluid" style={{ backgroundColor: theme.navbarColor }}>
+        <div className="container-fluid" >
           <a className="navbar-brand" href="#">
             Navbar
           </a>

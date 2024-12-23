@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Content from "./Content";
 
 import { Link } from "react-router-dom";
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false); // Toggle between small and large sidebar
   const [isTopbar, setIsTopbar] = useState(false); // Toggle between side and top sidebar
+  const theme = JSON.parse(localStorage.getItem("theme")) || {};
 
-const theme = localStorage.getItem('theme') ? JSON.parse(localStorage.getItem('theme')) : { fontColor: '#ffffff' };
+
+  useEffect(() => {
+    if (theme && theme.sidebarPosition === "Header") {
+      setIsTopbar(true);
+    }
+  }, [theme]);
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
-  };
-
-  const togglePosition = () => {
-    setIsTopbar(!isTopbar);
   };
 
   return (
@@ -28,10 +30,11 @@ const theme = localStorage.getItem('theme') ? JSON.parse(localStorage.getItem('t
       >
         {/* Sidebar / Navbar */}
         <div
+          className="SidebarColored"
           style={{
             width: isTopbar ? "100%" : isCollapsed ? "60px" : "250px",
             height: isTopbar ? "60px" : "100vh",
-            backgroundColor: theme.sidebarColor,
+
             color: "white",
             transition: "all 0.3s ease",
             display: "flex",
@@ -119,24 +122,8 @@ const theme = localStorage.getItem('theme') ? JSON.parse(localStorage.getItem('t
             </li>
           </ul>
 
-          {/* Control Buttons */}
-          <div style={{ display: "flex", gap: "10px" }}>
-            <button
-              onClick={togglePosition}
-              style={{
-                backgroundColor: "#6c757d",
-                color: "white",
-                border: "none",
-                padding: "5px 10px",
-                cursor: "pointer",
-              }}
-            >
-              {isTopbar ? "Side" : "Top"}
-            </button>
-          </div>
         </div>
 
-        {/* Main Content */}
         <Content />
       </div>
     </>
