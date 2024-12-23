@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Content from "./Content";
-
+import { Admin } from "./Sidebar_config";
+import { House } from 'lucide-react';
 import { Link } from "react-router-dom";
 const Sidebar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false); // Toggle between small and large sidebar
-  const [isTopbar, setIsTopbar] = useState(false); // Toggle between side and top sidebar
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isTopbar, setIsTopbar] = useState(false);
   const theme = JSON.parse(localStorage.getItem("theme")) || {};
 
+  console.log("theme", Admin);
 
   useEffect(() => {
     if (theme && theme.sidebarPosition === "Header") {
@@ -80,48 +82,22 @@ const Sidebar = () => {
               padding: "0",
             }}
           >
-            <li style={{ cursor: "pointer" }}>
-              <Link
-                to="/home"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                Home
-              </Link>
-            </li>
-            <li style={{ cursor: "pointer" }}>
-              <Link
-                to="/dashboard"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                Dashboard
-              </Link>
-            </li>
-            <li style={{ cursor: "pointer" }}>
-              <Link
-                to="/orders"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                Orders
-              </Link>
-            </li>
-            <li style={{ cursor: "pointer" }}>
-              <Link
-                to="/products"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                Products
-              </Link>
-            </li>
-            <li style={{ cursor: "pointer" }}>
-              <Link
-                to="/settings"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                Settings
-              </Link>
-            </li>
+            {Admin &&
+              Admin.map((tab) => {
+                return (
+                  <li>
+                    <Link
+                      to={tab.link}
+                      style={{ color: "white", textDecoration: "none" }}
+                    >
+                      <House size={24} />
+                      {/* <i className={tab.icon} style={{ marginRight: "10px" }} /> */}
+                      {tab.name}
+                    </Link>
+                  </li>
+                );
+              })}
           </ul>
-
         </div>
 
         <Content />

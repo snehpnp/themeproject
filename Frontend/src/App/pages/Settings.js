@@ -4,7 +4,6 @@ import { Formik, Form, Field } from "formik";
 const Settings = () => {
   const theme = JSON.parse(localStorage.getItem("theme")) || {};
 
-  console.log("theme", theme.fontColor);
 
   return (
     <div style={{ padding: "20px" }}>
@@ -17,6 +16,7 @@ const Settings = () => {
           fontColor: theme.fontColor || "#ffffff",
           sidebarPosition: theme.sidebarPosition || "Header",
           fontFamily: theme.fontFamily || "Arial",
+          navbarPosition: theme.navbarPosition || "Header",
         }}
         onSubmit={(values) => {
           console.log("values", values);
@@ -48,6 +48,15 @@ const Settings = () => {
                 <option value="Sidebar">Sidebar</option>
               </Field>
             </div>
+
+            <div style={{ marginBottom: "10px" }}>
+                <label>Navbar Position: </label>
+                <Field as="select" name="navbarPosition">
+                    <option value="Navbar">Navbar</option>
+                    <option value="Sidebar">Sidebar</option>
+                </Field>
+            </div>
+
             {/* ADD ALL TYPE FONT */}
             <div style={{ marginBottom: "10px", fontFamily: theme.fontFamily }}>
               <label>Font: </label>

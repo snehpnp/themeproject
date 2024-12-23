@@ -18,7 +18,7 @@ export default function App() {
       document.documentElement.setAttribute("data-theme", savedTheme);
 
       // Apply background color to .container-fluid
-      const container = document.querySelector(".container-fluid");
+      const container = document.querySelector(".TopNavbar");
       const SidebarColored = document.querySelector(".SidebarColored");
 
       if (container) {
