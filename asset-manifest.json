@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/themeproject/static/css/main.49faa5e3.css",
+    "main.js": "/themeproject/static/js/main.203484e4.js",
+    "static/media/LOGO.png": "/themeproject/static/media/LOGO.557900ef80b81fc3fd07.png",
+    "index.html": "/themeproject/index.html",
+    "main.49faa5e3.css.map": "/themeproject/static/css/main.49faa5e3.css.map",
+    "main.203484e4.js.map": "/themeproject/static/js/main.203484e4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.49faa5e3.css",
+    "static/js/main.203484e4.js"
+  ]
+}
