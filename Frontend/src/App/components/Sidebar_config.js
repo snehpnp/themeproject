@@ -41,9 +41,9 @@ const Admin = [
         link: "/tables/basic",
       },
       {
-        name:"React Table",
-        label:"React Table",
-        link:"/tables/reacttable",
+        name: "React Table",
+        label: "React Table",
+        link: "/tables/reacttable",
       },
       {
         name: "Bordered Table",
@@ -54,7 +54,6 @@ const Admin = [
         name: "Striped Table",
         label: "Striped Table",
         link: "/tables/striped",
-
       },
       {
         name: "Hover Table",
@@ -65,8 +64,7 @@ const Admin = [
         name: "Card Table",
         label: "Card Table",
         link: "/tables/card",
-      }
-
+      },
     ],
   },
   {
@@ -114,16 +112,10 @@ const Admin = [
         name: "Dark theme  Form",
         label: "Dark theme  Form",
         link: "/forms/Darktheme",
-      }
+      },
     ],
   },
-  {
-    name: "Orders",
-    label: "Orders",
-    icon: "fa fa-shopping-cart",
-    link: "/orders",
-    children: [],
-  },
+
   {
     name: "Products",
     label: "Products",

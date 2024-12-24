@@ -19,6 +19,8 @@ import StripedTable from "./Tabels/StripedTable";
 import BorderTable from "./Tabels/BorderedTable";
 import HoverTable from "./Tabels/HoverableTable";
 import Reacttabel from "./Tabels/Reacttable";
+import Product from "../pages/Product";
+import Chart from "../pages/Chart";
 
 export default function App() {
   return (
@@ -40,7 +42,8 @@ export default function App() {
       <Route path="/tables/bordered" element={<BorderTable />} />
       <Route path="/tables/hover" element={<HoverTable />} />
       <Route path="/tables/reacttable" element={<Reacttabel />} />
-
+      <Route path="/products" element={<Product />} />
+      <Route path="/charts" element={<Chart />} />
     </Routes>
   );
 }
