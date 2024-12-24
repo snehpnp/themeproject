@@ -36,7 +36,7 @@ const Sidebar = () => {
       >
         {/* Sidebar / Navbar */}
         <div
-          className="SidebarColored"
+          className={isTopbar?"SidebarColored Sidebar-vertical":"SidebarColored Sidebar-horizontal"}
           style={{
             width: isTopbar ? "100%" : isCollapsed ? "60px" : "250px",
             height: isTopbar ? "60px" : "100vh",
@@ -57,7 +57,7 @@ const Sidebar = () => {
               marginBottom: isTopbar ? "0" : "20px",
             }}
           >
-            {isTopbar ? "Navbar" : "Sidebar"}
+            {/* {isTopbar ? "Navbar" : "Sidebar"} */}
             {!isTopbar && (
               <button
                 onClick={toggleSidebar}
