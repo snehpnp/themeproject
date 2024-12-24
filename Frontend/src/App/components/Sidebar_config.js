@@ -34,7 +34,40 @@ const Admin = [
     label: "Tables",
     icon: "fa fa-table",
     link: "/tables",
-    children: [],
+    children: [
+      {
+        name: "Basic Table",
+        label: "Basic Table",
+        link: "/tables/basic",
+      },
+      {
+        name:"React Table",
+        label:"React Table",
+        link:"/tables/reacttable",
+      },
+      {
+        name: "Bordered Table",
+        label: "Bordered Table",
+        link: "/tables/bordered",
+      },
+      {
+        name: "Striped Table",
+        label: "Striped Table",
+        link: "/tables/striped",
+
+      },
+      {
+        name: "Hover Table",
+        label: "Hover Table",
+        link: "/tables/hover",
+      },
+      {
+        name: "Card Table",
+        label: "Card Table",
+        link: "/tables/card",
+      }
+
+    ],
   },
   {
     name: "Charts",
