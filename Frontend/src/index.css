@@ -1,4 +1,4 @@
-.App {
+/* .App {
   font-family: sans-serif;
 }
 * {
@@ -27,17 +27,17 @@ p:hover {
 
 .main-container {
   display: flex;
-  flex-direction: column; /* Switch to vertical layout */
+  flex-direction: column; 
   min-height: calc(100vh - 4rem);
   background-color: coral;
 }
 
 .sidebar {
   display: flex;
-  height: 60px; /* Fixed height for the top navbar */
+  height: 60px; 
   background-color: cornsilk;
   align-items: center;
-  justify-content: space-between; /* Align items across the navbar */
+  justify-content: space-between; 
   padding: 0 1rem;
 }
 
@@ -47,4 +47,4 @@ p:hover {
   background-color: white;
   padding: 1rem;
 }
-
+ */

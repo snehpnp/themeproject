@@ -62,7 +62,33 @@ const Admin = [
     label: "Forms",
     icon: "fa fa-file",
     link: "/forms",
-    children: [],
+    children: [
+      {
+        name: "Basic Form",
+        label: "Basic Form",
+        link: "/forms/classic",
+      },
+      {
+        name: "Modern  Form",
+        label: "Modern  Form",
+        link: "/forms/Modern ",
+      },
+      {
+        name: "Glassmorphism Form",
+        label: "Glassmorphism Form",
+        link: "/forms/Glassmorphism",
+      },
+      {
+        name: "Floating  Form",
+        label: "Floating  Form",
+        link: "/forms/Floating ",
+      },
+      {
+        name: "Dark theme  Form",
+        label: "Dark theme  Form",
+        link: "/forms/Darktheme",
+      }
+    ],
   },
   {
     name: "Orders",
