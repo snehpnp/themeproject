@@ -8,11 +8,11 @@ const Navbar = ({ headerStatus, toggleHeaderStatus }) => {
 
   // theme.navbarPosition
 
-
+  // linear-gradient(to right, #1d37fc, #e81717)
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light" >
-        <div className="TopNavbar container-fluid" >
+      <nav className="navbar navbar-expand-lg TopNavbar" >
+        <div className="container-fluid" >
           <a className="navbar-brand" href="#">
             Navbar
           </a>

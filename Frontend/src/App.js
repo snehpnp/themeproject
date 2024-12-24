@@ -9,8 +9,6 @@ import Home from "./App/pages/Home";
 export default function App() {
   const savedTheme = localStorage.getItem("theme");
   useEffect(() => {
-    console.log("savedTheme", savedTheme);
-
     if (savedTheme) {
       const theme = JSON.parse(savedTheme); // Parse the theme object
 
@@ -18,14 +16,27 @@ export default function App() {
       document.documentElement.setAttribute("data-theme", savedTheme);
 
       // Apply background color to .container-fluid
-      const container = document.querySelector(".TopNavbar");
+      const container = document.querySelector(".navbar");
       const SidebarColored = document.querySelector(".SidebarColored");
 
+      let sidebar = theme.sidebarColor?.includes("gradient") || false;
+      let navbar = theme.navbarColor?.includes("gradient") || false;
+      let font = theme.fontColor?.includes("gradient") || false;
+      console.log("theme", sidebar);
+
       if (container) {
-        container.style.backgroundColor = theme.navbarColor;
+        if (navbar) {
+          container.style.background = theme.navbarColor;
+        } else {
+          container.style.backgroundColor = theme.navbarColor;
+        }
       }
       if (SidebarColored) {
-        SidebarColored.style.backgroundColor = theme.sidebarColor;
+        if (sidebar) {
+          SidebarColored.style.background = theme.sidebarColor;
+        } else {
+          SidebarColored.style.backgroundColor = theme.sidebarColor;
+        }
       }
       // CHANGE ALL SOFTWARE FONT COLOR
       const fontColor = theme.fontColor;

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Content from "./Content";
 import { Admin } from "./Sidebar_config";
-import { House } from 'lucide-react';
+import { House, ChevronDown, ChevronRight } from 'lucide-react';
 import { Link } from "react-router-dom";
+
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isTopbar, setIsTopbar] = useState(false);
+  const [openTab, setOpenTab] = useState(null); // Track which tab is open
   const theme = JSON.parse(localStorage.getItem("theme")) || {};
-
-  console.log("theme", Admin);
 
   useEffect(() => {
     if (theme && theme.sidebarPosition === "Header") {
@@ -18,6 +18,10 @@ const Sidebar = () => {
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
+  };
+
+  const toggleSubmenu = (tabName) => {
+    setOpenTab(openTab === tabName ? null : tabName);
   };
 
   return (
@@ -36,7 +40,6 @@ const Sidebar = () => {
           style={{
             width: isTopbar ? "100%" : isCollapsed ? "60px" : "250px",
             height: isTopbar ? "60px" : "100vh",
-
             color: "white",
             transition: "all 0.3s ease",
             display: "flex",
@@ -80,26 +83,81 @@ const Sidebar = () => {
               gap: isTopbar ? "20px" : "10px",
               margin: "0",
               padding: "0",
+              width: "100%",
             }}
           >
             {Admin &&
-              Admin.map((tab) => {
-                return (
-                  <li>
+              Admin.map((tab) => (
+                <li key={tab.name} style={{ width: "100%" }}>
+                  {/* Parent Tab */}
+                  <div
+                    onClick={() => tab.children && toggleSubmenu(tab.name)}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      cursor: tab.children ? "pointer" : "default",
+                      padding: "10px",
+                      backgroundColor: "#343a40",
+                      borderRadius: "5px",
+                    }}
+                  >
                     <Link
                       to={tab.link}
-                      style={{ color: "white", textDecoration: "none" }}
+                      style={{
+                        color: "white",
+                        textDecoration: "none",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                      }}
                     >
                       <House size={24} />
-                      {/* <i className={tab.icon} style={{ marginRight: "10px" }} /> */}
                       {tab.name}
                     </Link>
-                  </li>
-                );
-              })}
+                    {tab.children.length > 0 &&
+                      (openTab === tab.name ? (
+                        <ChevronDown size={20} />
+                      ) : (
+                        <ChevronRight size={20} />
+                      ))}
+                  </div>
+
+                  {/* Child Tabs */}
+                  {tab.children && openTab === tab.name && (
+                    <ul
+                      style={{
+                        listStyle: "none",
+                        paddingLeft: "20px",
+                        marginTop: "5px",
+                        display: isCollapsed ? "none" : "block", // Hide children in collapsed mode
+                      }}
+                    >
+                      {tab.children.map((child) => (
+                        <li key={child.name} style={{ margin: "5px 0" }}>
+                          <Link
+                            to={child.link}
+                            style={{
+                              color: "white",
+                              textDecoration: "none",
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "10px",
+                            }}
+                          >
+                            <House size={20} />
+                            {child.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
           </ul>
         </div>
 
+        {/* Main Content */}
         <Content />
       </div>
     </>
