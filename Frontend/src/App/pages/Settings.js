@@ -216,7 +216,7 @@ const Settings = () => {
             </div>
 
             <div style={{ marginBottom: "10px" }}>
-              <label>Theme Name</label>
+              <label>Dashboard Name</label>
               <Field as="select" name="themeId" type="text">
                 <option value="1">1</option>
                 <option value="2">2</option>
