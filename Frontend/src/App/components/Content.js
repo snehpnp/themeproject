@@ -2,7 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import Login from "../pages/Login";
 import Settings from "../pages/Settings";
 import Home from "../pages/Home";
-import Dashboard from "../pages/Dashboard";
+// import Dashboard from "../pages/Dashboard";
+import Dashboard from "../components/Dashboard/DashbaordMain";
 
 export default function App() {
   return (
