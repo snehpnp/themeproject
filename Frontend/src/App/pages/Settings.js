@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form, Field } from "formik";
 
-
 const Settings = () => {
   const [isGradient, setIsGradient] = useState({
     sidebar: false,
@@ -22,6 +21,7 @@ const Settings = () => {
     sidebarPosition: "Header",
     fontFamily: "Arial",
     navbarPosition: "Header",
+    themeId: "1",
   });
 
   // On Component Mount: Load theme from localStorage
@@ -46,13 +46,13 @@ const Settings = () => {
       sidebarPosition: theme.sidebarPosition || "Header",
       fontFamily: theme.fontFamily || "Arial",
       navbarPosition: theme.navbarPosition || "Header",
+      themeId: theme.themeId || "1",
     });
   }, []);
 
   return (
     <div style={{ padding: "20px" }}>
       <h2>Settings Page</h2>
-     
 
       <Formik
         initialValues={initialValues}
@@ -189,7 +189,12 @@ const Settings = () => {
             </div>
 
             {/* ADD ALL TYPE FONT */}
-            <div style={{ marginBottom: "10px", fontFamily: initialValues.fontFamily }}>
+            <div
+              style={{
+                marginBottom: "10px",
+                fontFamily: initialValues.fontFamily,
+              }}
+            >
               <label>Font: </label>
               <Field as="select" name="fontFamily">
                 <option value="Arial">Arial</option>
@@ -207,6 +212,22 @@ const Settings = () => {
                 <option value="Garamond">Garamond</option>
                 <option value="Arial Black">Arial Black</option>
                 <option value="Consolas">Consolas</option>
+              </Field>
+            </div>
+
+            <div style={{ marginBottom: "10px" }}>
+              <label>Theme Name</label>
+              <Field as="select" name="themeId" type="text">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
               </Field>
             </div>
 

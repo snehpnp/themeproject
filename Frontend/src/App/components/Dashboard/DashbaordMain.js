@@ -52,26 +52,52 @@ const DashboardData = [
 ];
 
 const Dashboard = () => {
+  var GetThemeId = JSON.parse(localStorage.getItem("theme"));
+
+  useEffect(() => {
+    console.log("themeId", GetThemeId.themeId);
+    if (GetThemeId.themeId == 19) {
+    }
+  }, [GetThemeId.themeId]);
+
   return (
     <>
       <div>
         <div className="content-body">
           <div className="container-fluid">
-            <Dashboard1 data={DashboardData} />
-            <Dashboard2 data={DashboardData} />
-            <Dashboard3 data={DashboardData} />
-            <Dashboard4 data={DashboardData} />
-            <Dashboard5 data={DashboardData} />
-            <Dashboard6 data={DashboardData} />
-            <Dashboard7 data={DashboardData} />
-            <Dashboard8 data={DashboardData} />
-            <Dashboard9 data={DashboardData} />
-            <Dashboard10 data={DashboardData} />
+            {CallDashboard(GetThemeId.themeId)}{" "}
+          
           </div>
         </div>
       </div>
     </>
   );
+};
+
+const CallDashboard = (id) => {
+  if (id == 1) {
+    return <Dashboard1 data={DashboardData} />;
+  } else if (id == 2) {
+    return <Dashboard2 data={DashboardData} />;
+  } else if (id == 3) {
+    return <Dashboard3 data={DashboardData} />;
+  } else if (id == 4) {
+    return <Dashboard4 data={DashboardData} />;
+  } else if (id == 5) {
+    return <Dashboard5 data={DashboardData} />;
+  } else if (id == 6) {
+    return <Dashboard6 data={DashboardData} />;
+  } else if (id == 7) {
+    return <Dashboard7 data={DashboardData} />;
+  } else if (id == 8) {
+    return <Dashboard8 data={DashboardData} />;
+  } else if (id == 9) {
+    return <Dashboard9 data={DashboardData} />;
+  } else if (id == 10) {
+    return <Dashboard10 data={DashboardData} />;
+  } else {
+    return <Dashboard1 data={DashboardData} />;
+  }
 };
 
 export default Dashboard;

@@ -5,22 +5,6 @@ import { Link } from "react-router-dom";
 const Dashboard1 = ({ data }) => {
   var GetThemeId = JSON.parse(localStorage.getItem("theme"));
 
-  useEffect(() => {
-    if (GetThemeId.themeId == 19) {
-    
-      // FULL PAGE FONT COLOR CHANGE for BLACK
-      const elements = document.getElementsByClassName("income-data");
-   
-      for (let i = 0; i < elements.length; i++) {
-        // Add ! important
-        elements[i].style.background = "black";
-      }
-     
-
-
-    }
-  }, [GetThemeId.themeId]);
-
   let arr = [
     {
       index: 1,
