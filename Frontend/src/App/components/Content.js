@@ -15,7 +15,7 @@ import Modern from "./Forms/Modern";
 
 export default function App() {
   return (
-    <div className="content" style={{ backgroundColor: "yellow" }}>
+
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/settings" element={<Settings />} />
@@ -28,6 +28,6 @@ export default function App() {
         <Route path="/forms/Modern" element={<Modern />} />
         <Route path="/forms/Floating" element={<Floating />} />
       </Routes>
-    </div>
+   
   );
 }

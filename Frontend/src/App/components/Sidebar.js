@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Content from "./Content";
 import { Admin } from "./Sidebar_config";
-import { House, ChevronDown, ChevronRight } from 'lucide-react';
+import { House, ChevronDown, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -158,7 +158,9 @@ const Sidebar = () => {
         </div>
 
         {/* Main Content */}
-        <Content />
+        <div className="content" style={{ width: "100%" }}>
+          <Content />
+        </div>
       </div>
     </>
   );
