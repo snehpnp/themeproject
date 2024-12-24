@@ -109,7 +109,7 @@ const Sidebar = () => {
                       }}
                     >
                       <House size={24} />
-                      {tab.name}
+                      {!isCollapsed ?tab.name:""}
                     </Link>
                     {tab.children.length > 0 &&
                       (openTab === tab.name ? (
