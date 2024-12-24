@@ -43,13 +43,7 @@ const Admin = [
     link: "/charts",
     children: [],
   },
-  {
-    name: "Cards",
-    label: "Cards",
-    icon: "fa fa-credit-card",
-    link: "/cards",
-    children: [],
-  },
+
   {
     name: "Modals",
     label: "Modals",

@@ -25,144 +25,133 @@ const Sidebar = () => {
   };
 
   return (
-    <>
-      {/* Wrapper */}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: isTopbar ? "column" : "row",
+        height: "100vh",
+      }}
+    >
+      {/* Sidebar */}
       <div
+        className={`sidebar ${isTopbar ? "topbar" : ""}`}
         style={{
-          display: "flex",
-          flexDirection: isTopbar ? "column" : "row",
-          minHeight: "100vh",
+          width: isTopbar ? "100%" : isCollapsed ? "60px" : "250px",
+          height: isTopbar ? "60px" : "100vh",
+          background: "#2C3E50",
+          color: "#ECF0F1",
+          transition: "width 0.3s ease",
+          overflowY: "auto",
         }}
       >
-        {/* Sidebar / Navbar */}
+        {/* Sidebar Header */}
         <div
-          className={isTopbar?"SidebarColored Sidebar-vertical":"SidebarColored Sidebar-horizontal"}
           style={{
-            width: isTopbar ? "100%" : isCollapsed ? "60px" : "250px",
-            height: isTopbar ? "60px" : "100vh",
-            color: "white",
-            transition: "all 0.3s ease",
             display: "flex",
-            flexDirection: isTopbar ? "row" : "column",
             alignItems: "center",
-            justifyContent: isTopbar ? "space-between" : "flex-start",
-            padding: isTopbar ? "0 20px" : "10px",
+            justifyContent: isTopbar ? "space-between" : "center",
+            padding: "10px 20px",
+            borderBottom: "1px solid #34495E",
           }}
         >
-          {/* Logo or Title */}
-          <div
-            style={{
-              fontSize: "1.2rem",
-              fontWeight: "bold",
-              marginBottom: isTopbar ? "0" : "20px",
-            }}
-          >
-            {/* {isTopbar ? "Navbar" : "Sidebar"} */}
-            {!isTopbar && (
-              <button
-                onClick={toggleSidebar}
+          {!isTopbar && (
+            <button
+              onClick={toggleSidebar}
+              style={{
+                backgroundColor: "#16A085",
+                color: "white",
+                border: "none",
+                padding: "5px 10px",
+                cursor: "pointer",
+                borderRadius: "4px",
+              }}
+            >
+              {isCollapsed ? ">>" : "<<"}
+            </button>
+          )}
+          <h3 style={{ marginLeft: isCollapsed ? "0" : "10px" }}>
+            {isCollapsed ? "" : "Dashboard"}
+          </h3>
+        </div>
+
+        {/* Navigation Links */}
+        <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+          {Admin.map((tab) => (
+            <li key={tab.name} style={{ width: "100%" }}>
+              <div
+                onClick={() => tab.children && toggleSubmenu(tab.name)}
                 style={{
-                  backgroundColor: "#495057",
-                  color: "white",
-                  border: "none",
-                  padding: "5px 10px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
                   cursor: "pointer",
+                  padding: "12px 20px",
+                  background: openTab === tab.name ? "#1ABC9C" : "transparent",
+                  transition: "background 0.2s",
                 }}
               >
-                {isCollapsed ? ">>" : "<<"}
-              </button>
-            )}
-          </div>
+                <Link
+                  to={tab.link}
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                >
+                  <House size={20} />
+                  {!isCollapsed && tab.name}
+                </Link>
+                {tab &&
+                  tab.children.length > 0 &&
+                  (openTab === tab.name ? (
+                    <ChevronDown size={20} />
+                  ) : (
+                    <ChevronRight size={20} />
+                  ))}
+              </div>
 
-          {/* Navigation Links */}
-          <ul
-            style={{
-              listStyle: "none",
-              display: "flex",
-              flexDirection: isTopbar ? "row" : "column",
-              gap: isTopbar ? "20px" : "10px",
-              margin: "0",
-              padding: "0",
-              width: "100%",
-            }}
-          >
-            {Admin &&
-              Admin.map((tab) => (
-                <li key={tab.name} style={{ width: "100%" }}>
-                  {/* Parent Tab */}
-                  <div
-                    onClick={() => tab.children && toggleSubmenu(tab.name)}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      cursor: tab.children ? "pointer" : "default",
-                      padding: "10px",
-                      backgroundColor: "#343a40",
-                      borderRadius: "5px",
-                    }}
-                  >
-                    <Link
-                      to={tab.link}
-                      style={{
-                        color: "white",
-                        textDecoration: "none",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                      }}
-                    >
-                      <House size={24} />
-                      {tab.name}
-                    </Link>
-                    {tab.children.length > 0 &&
-                      (openTab === tab.name ? (
-                        <ChevronDown size={20} />
-                      ) : (
-                        <ChevronRight size={20} />
-                      ))}
-                  </div>
-
-                  {/* Child Tabs */}
-                  {tab.children && openTab === tab.name && (
-                    <ul
-                      style={{
-                        listStyle: "none",
-                        paddingLeft: "20px",
-                        marginTop: "5px",
-                        display: isCollapsed ? "none" : "block", // Hide children in collapsed mode
-                      }}
-                    >
-                      {tab.children.map((child) => (
-                        <li key={child.name} style={{ margin: "5px 0" }}>
-                          <Link
-                            to={child.link}
-                            style={{
-                              color: "white",
-                              textDecoration: "none",
-                              display: "flex",
-                              alignItems: "center",
-                              gap: "10px",
-                            }}
-                          >
-                            <House size={20} />
-                            {child.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-          </ul>
-        </div>
-
-        {/* Main Content */}
-        <div className="content" style={{ width: "100%" }}>
-          <Content />
-        </div>
+              {/* Child Tabs */}
+              {tab.children && openTab === tab.name && (
+                <ul
+                  style={{
+                    listStyle: "none",
+                    paddingLeft: isCollapsed ? "10px" : "30px",
+                    margin: "5px 0",
+                    background: "#34495E",
+                  }}
+                >
+                  {tab.children.map((child) => (
+                    <li key={child.name} style={{ margin: "5px 0" }}>
+                      <Link
+                        to={child.link}
+                        style={{
+                          color: "#ECF0F1",
+                          textDecoration: "none",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "10px",
+                          padding: "8px 0",
+                        }}
+                      >
+                        <House size={16} />
+                        {!isCollapsed && child.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
       </div>
-    </>
+
+      {/* Main Content */}
+      <div style={{ flex: 1, background: "#F8F9FA", padding: "20px" }}>
+        <Content />
+      </div>
+    </div>
   );
 };
 

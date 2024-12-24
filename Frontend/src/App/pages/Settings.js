@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form, Field } from "formik";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 const Settings = () => {
   const [isGradient, setIsGradient] = useState({
@@ -51,8 +52,8 @@ const Settings = () => {
   }, []);
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Settings Page</h2>
+    <Container>
+      <h2 className="my-4">Settings Page</h2>
 
       <Formik
         initialValues={initialValues}
@@ -76,168 +77,193 @@ const Settings = () => {
       >
         {({ values }) => (
           <Form>
-            {/* Sidebar Color */}
-            <div style={{ marginBottom: "10px" }}>
-              <label>Sidebar Color Mode: </label>
-              <label>
-                <input
-                  type="radio"
-                  name="sidebarMode"
-                  checked={!isGradient.sidebar}
-                  onChange={() =>
-                    setIsGradient((prev) => ({ ...prev, sidebar: false }))
-                  }
-                />
-                Solid
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="sidebarMode"
-                  checked={isGradient.sidebar}
-                  onChange={() =>
-                    setIsGradient((prev) => ({ ...prev, sidebar: true }))
-                  }
-                />
-                Gradient
-              </label>
-            </div>
+            <Row>
+              {/* Sidebar Color Card */}
+              <Col md={6} lg={4} className="mb-4">
+                <Card>
+                  <Card.Body>
+                    <Card.Title>Sidebar Color</Card.Title>
+                    <div>
+                      <label>Sidebar Color Mode: </label>
+                      <label>
+                        <input
+                          type="radio"
+                          name="sidebarMode"
+                          checked={!isGradient.sidebar}
+                          onChange={() =>
+                            setIsGradient((prev) => ({ ...prev, sidebar: false }))
+                          }
+                        />
+                        Solid
+                      </label>
+                      <label>
+                        <input
+                          type="radio"
+                          name="sidebarMode"
+                          checked={isGradient.sidebar}
+                          onChange={() =>
+                            setIsGradient((prev) => ({ ...prev, sidebar: true }))
+                          }
+                        />
+                        Gradient
+                      </label>
+                    </div>
 
-            {!isGradient.sidebar ? (
-              <div style={{ marginBottom: "10px" }}>
-                <label>Sidebar Solid Color: </label>
-                <Field name="sidebarColor" type="color" />
-              </div>
-            ) : (
-              <div style={{ marginBottom: "10px" }}>
-                <label>Sidebar Gradient Start: </label>
-                <Field name="sidebarGradientStart" type="color" />
-                <label>Sidebar Gradient End: </label>
-                <Field name="sidebarGradientEnd" type="color" />
-                <div
-                  style={{
-                    marginTop: "10px",
-                    height: "50px",
-                    background: `linear-gradient(to right, ${values.sidebarGradientStart}, ${values.sidebarGradientEnd})`,
-                    border: "1px solid #ccc",
-                  }}
-                ></div>
-              </div>
-            )}
+                    {!isGradient.sidebar ? (
+                      <div className="mt-3">
+                        <label>Sidebar Solid Color: </label>
+                        <Field name="sidebarColor" type="color" />
+                      </div>
+                    ) : (
+                      <div className="mt-3">
+                        <label>Sidebar Gradient Start: </label>
+                        <Field name="sidebarGradientStart" type="color" /><br/>
+                        <label>Sidebar Gradient End: </label>
+                        <Field name="sidebarGradientEnd" type="color" />
+                        <div
+                          style={{
+                            marginTop: "10px",
+                            height: "50px",
+                            background: `linear-gradient(to right, ${values.sidebarGradientStart}, ${values.sidebarGradientEnd})`,
+                            border: "1px solid #ccc",
+                          }}
+                        ></div>
+                      </div>
+                    )}
+                  </Card.Body>
+                </Card>
+              </Col>
 
-            {/* Navbar Color */}
-            <div style={{ marginBottom: "10px" }}>
-              <label>Navbar Color Mode: </label>
-              <label>
-                <input
-                  type="radio"
-                  name="navbarMode"
-                  checked={!isGradient.navbar}
-                  onChange={() =>
-                    setIsGradient((prev) => ({ ...prev, navbar: false }))
-                  }
-                />
-                Solid
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="navbarMode"
-                  checked={isGradient.navbar}
-                  onChange={() =>
-                    setIsGradient((prev) => ({ ...prev, navbar: true }))
-                  }
-                />
-                Gradient
-              </label>
-            </div>
+              {/* Navbar Color Card */}
+              <Col md={6} lg={4} className="mb-4">
+                <Card>
+                  <Card.Body>
+                    <Card.Title>Navbar Color</Card.Title>
+                    <div>
+                      <label>Navbar Color Mode: </label>
+                      <label>
+                        <input
+                          type="radio"
+                          name="navbarMode"
+                          checked={!isGradient.navbar}
+                          onChange={() =>
+                            setIsGradient((prev) => ({ ...prev, navbar: false }))
+                          }
+                        />
+                        Solid
+                      </label>
+                      <label>
+                        <input
+                          type="radio"
+                          name="navbarMode"
+                          checked={isGradient.navbar}
+                          onChange={() =>
+                            setIsGradient((prev) => ({ ...prev, navbar: true }))
+                          }
+                        />
+                        Gradient
+                      </label>
+                    </div>
 
-            {!isGradient.navbar ? (
-              <div style={{ marginBottom: "10px" }}>
-                <label>Navbar Solid Color: </label>
-                <Field name="navbarColor" type="color" />
-              </div>
-            ) : (
-              <div style={{ marginBottom: "10px" }}>
-                <label>Navbar Gradient Start: </label>
-                <Field name="navbarGradientStart" type="color" />
-                <label>Navbar Gradient End: </label>
-                <Field name="navbarGradientEnd" type="color" />
-                <div
-                  style={{
-                    marginTop: "10px",
-                    height: "50px",
-                    background: `linear-gradient(to right, ${values.navbarGradientStart}, ${values.navbarGradientEnd})`,
-                    border: "1px solid #ccc",
-                  }}
-                ></div>
-              </div>
-            )}
+                    {!isGradient.navbar ? (
+                      <div className="mt-3">
+                        <label>Navbar Solid Color: </label>
+                        <Field name="navbarColor" type="color" />
+                      </div>
+                    ) : (
+                      <div className="mt-3">
+                        <label>Navbar Gradient Start: </label>
+                        <Field name="navbarGradientStart" type="color" /><br/>
+                        <label>Navbar Gradient End: </label>
+                        <Field name="navbarGradientEnd" type="color" />
+                        <div
+                          style={{
+                            marginTop: "10px",
+                            height: "50px",
+                            background: `linear-gradient(to right, ${values.navbarGradientStart}, ${values.navbarGradientEnd})`,
+                            border: "1px solid #ccc",
+                          }}
+                        ></div>
+                      </div>
+                    )}
+                  </Card.Body>
+                </Card>
+              </Col>
 
-            {/* Font Color */}
-            <div style={{ marginBottom: "10px" }}>
-              <label>Font Solid Color: </label>
-              <Field name="fontColor" type="color" />
-            </div>
+              {/* Font Color Card */}
+              <Col md={6} lg={4} className="mb-4">
+                <Card>
+                  <Card.Body>
+                    <Card.Title>Font Color</Card.Title>
+                    <div className="mt-3">
+                      <label>Font Solid Color: </label>
+                      <Field name="fontColor" type="color" />
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
 
-            <div style={{ marginBottom: "10px" }}>
-              <label>Sidebar Position: </label>
-              <Field as="select" name="sidebarPosition">
-                <option value="Header">Header</option>
-                <option value="Sidebar">Sidebar</option>
-              </Field>
-            </div>
+            <Row>
+              {/* Sidebar Position & Font Settings Card */}
+              <Col md={6} lg={4} className="mb-4">
+                <Card>
+                  <Card.Body>
+                    <Card.Title>Other Settings</Card.Title>
+                    <div className="mt-3">
+                      <label>Sidebar Position: </label>
+                      <Field as="select" name="sidebarPosition" className="form-control">
+                        <option value="Header">Header</option>
+                        <option value="Sidebar">Sidebar</option>
+                      </Field>
+                    </div>
 
-            {/* ADD ALL TYPE FONT */}
-            <div
-              style={{
-                marginBottom: "10px",
-                fontFamily: initialValues.fontFamily,
-              }}
-            >
-              <label>Font: </label>
-              <Field as="select" name="fontFamily">
-                <option value="Arial">Arial</option>
-                <option value="Times New Roman">Times New Roman</option>
-                <option value="Courier New">Courier New</option>
-                <option value="Verdana">Verdana</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Impact">Impact</option>
-                <option value="Comic Sans MS">Comic Sans MS</option>
-                <option value="Tahoma">Tahoma</option>
-                <option value="Trebuchet MS">Trebuchet MS</option>
-                <option value="Lucida Console">Lucida Console</option>
-                <option value="Palatino Linotype">Palatino Linotype</option>
-                <option value="Tahoma">Tahoma</option>
-                <option value="Garamond">Garamond</option>
-                <option value="Arial Black">Arial Black</option>
-                <option value="Consolas">Consolas</option>
-              </Field>
-            </div>
+                    <div className="mt-3">
+                      <label>Font: </label>
+                      <Field as="select" name="fontFamily" className="form-control">
+                        <option value="Arial">Arial</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Comic Sans MS">Comic Sans MS</option>
+                        <option value="Tahoma">Tahoma</option>
+                        <option value="Trebuchet MS">Trebuchet MS</option>
+                        <option value="Lucida Console">Lucida Console</option>
+                        <option value="Palatino Linotype">Palatino Linotype</option>
+                        <option value="Arial Black">Arial Black</option>
+                        <option value="Consolas">Consolas</option>
+                      </Field>
+                    </div>
 
-            <div style={{ marginBottom: "10px" }}>
-              <label>Dashboard Name</label>
-              <Field as="select" name="themeId" type="text">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </Field>
-            </div>
+                    <div className="mt-3">
+                      <label>Dashboard Name: </label>
+                      <Field as="select" name="themeId" className="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      </Field>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
 
-            <button type="submit" style={{ marginTop: "20px" }}>
+            <Button type="submit" className="mt-4">
               Apply Changes
-            </button>
+            </Button>
           </Form>
         )}
       </Formik>
-    </div>
+    </Container>
   );
 };
 
