@@ -126,6 +126,7 @@ const Sidebar = () => {
                         paddingLeft: "20px",
                         marginTop: "5px",
                         display: isCollapsed ? "none" : "block",
+                        position: isTopbar ? "absolute" : "relative",
                       }}
                     >
                       {tab.children.map((child) => (
@@ -133,7 +134,7 @@ const Sidebar = () => {
                           <Link
                             to={child.link}
                             style={{
-                              color: "white",
+                              // color: "white",
                               textDecoration: "none",
                               display: "flex",
                               alignItems: "center",
