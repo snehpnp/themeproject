@@ -35,7 +35,7 @@ import {
   Cog,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import BgImg from "./Images/background.mp4";
+import BgImg from "./Images/bg2.mp4";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -124,16 +124,16 @@ const Sidebar = () => {
               }}
             >
               {!isTopbar && (
-                <button
+                <div
                   onClick={toggleSidebar}
-                  style={{
-                    border: "none",
-                    padding: "5px 10px",
-                    cursor: "pointer",
-                  }}
+                  // style={{
+                  //   border: "none",
+                  //   padding: "5px 10px",
+                  //   cursor: "pointer",
+                  // }}
                 >
                   {isCollapsed ? ">>" : "<<"}
-                </button>
+                </div>
               )}
             </div>
 
