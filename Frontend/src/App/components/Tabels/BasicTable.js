@@ -63,7 +63,7 @@ const BasicTable = () => {
         }}
       >
         <thead>
-          <tr style={{ backgroundColor: '#4CAF50', color: '#fff' }}>
+          <tr >
             <th style={{ padding: '12px', textAlign: 'left', border: '1px solid #ddd' }}>
               Select
             </th>
@@ -183,7 +183,7 @@ const buttonStyle = {
   padding: '8px 16px',
   margin: '0 5px',
   backgroundColor: '#4CAF50',
-  color: 'white',
+
   border: 'none',
   borderRadius: '5px',
   cursor: 'pointer',
@@ -193,7 +193,7 @@ const actionButtonStyle = {
   padding: '8px 12px',
   margin: '0 5px',
   backgroundColor: '#007bff',
-  color: 'white',
+
   border: 'none',
   borderRadius: '5px',
   cursor: 'pointer',

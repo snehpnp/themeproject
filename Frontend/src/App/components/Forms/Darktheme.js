@@ -2,7 +2,6 @@ import React from 'react';
 
 const darkStyle = {
   background: '#2C2C2C',
-  color: '#FFF',
   padding: '30px',
   borderRadius: '8px',
   maxWidth: '400px',
@@ -17,7 +16,7 @@ const inputStyle = {
   borderRadius: '4px',
   border: '1px solid #555',
   background: '#444',
-  color: '#FFF',
+  
 };
 
 const buttonStyle = {
@@ -26,7 +25,7 @@ const buttonStyle = {
   borderRadius: '4px',
   border: 'none',
   backgroundColor: '#4CAF50',
-  color: '#FFF',
+
   fontWeight: 'bold',
   cursor: 'pointer',
   transition: 'background-color 0.3s ease',

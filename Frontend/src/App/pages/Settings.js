@@ -24,6 +24,7 @@ const Settings = () => {
     navbarPosition: "Header",
     themeId: "1",
     sidebarName: "1",
+    BtnBgColor: "#ffffff",
   });
 
   // On Component Mount: Load theme from localStorage
@@ -50,6 +51,7 @@ const Settings = () => {
       navbarPosition: theme.navbarPosition || "Header",
       themeId: theme.themeId || "1",
       sidebarName: theme.sidebarName || "1",
+      BtnBgColor: theme.BtnBgColor || "#ffffff",
     });
   }, []);
 
@@ -81,7 +83,6 @@ const Settings = () => {
         {({ values }) => (
           <Form>
             <Row>
-              {/* Sidebar Color Card */}
               <Col md={6} lg={4} className="mb-4">
                 <Card>
                   <Card.Body>
@@ -213,6 +214,12 @@ const Settings = () => {
                       <label>Font Solid Color: </label>
                       <Field name="fontColor" type="color" />
                     </div>
+
+                    <div className="mt-3">
+                      <label>Button Background Color: </label>
+                      <Field name="BtnBgColor" type="color" />
+                    </div>
+
                     <div className="mt-3">
                       <label>Font: </label>
                       <Field
@@ -283,17 +290,7 @@ const Settings = () => {
                 <Card>
                   <Card.Body>
                     <Card.Title>Theme Settings</Card.Title>
-                    <div className="mt-3">
-                      <label>Sidebar Position: </label>
-                      <Field
-                        as="select"
-                        name="sidebarPosition"
-                        className="form-control"
-                      >
-                        <option value="Header">Header</option>
-                        <option value="Sidebar">Sidebar</option>
-                      </Field>
-                    </div>
+                 
 
                    
 

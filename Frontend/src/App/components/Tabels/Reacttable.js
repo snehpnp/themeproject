@@ -36,7 +36,7 @@ function Reacttabel() {
             }}
             style={{
               backgroundColor: value ? 'green' : 'red',
-              color: 'white',
+            
               padding: '5px 10px',
               borderRadius: '5px',
               border: 'none',

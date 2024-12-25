@@ -53,14 +53,14 @@ const ProductPage = () => {
         {filteredProducts.map((product) => (
           <div key={product.id} style={{ border: '1px solid #ddd', padding: '15px', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', textAlign: 'center' }}>
             <img src={product.image} alt={product.name} style={{ width: '100%', height: '150px', objectFit: 'cover', marginBottom: '10px' }} />
-            <h3 style={{ fontSize: '20px', color: '#333' }}>{product.name}</h3>
-            <p style={{ color: '#666', fontSize: '14px' }}>{product.description}</p>
-            <p style={{ fontSize: '18px', fontWeight: 'bold', color: '#ff5722' }}>
-              ${product.price} <span style={{ fontSize: '14px', color: '#888' }}><strike>{product.price + product.discount}</strike></span>
+            <h3 style={{ fontSize: '20px',  }}>{product.name}</h3>
+            <p style={{  fontSize: '14px' }}>{product.description}</p>
+            <p style={{ fontSize: '18px', fontWeight: 'bold',  }}>
+              ${product.price} <span style={{ fontSize: '14px',  }}><strike>{product.price + product.discount}</strike></span>
             </p>
-            <p style={{ fontSize: '14px', color: '#28a745' }}>{product.offer}</p>
-            <p style={{ fontSize: '16px', color: '#ff9800' }}>Rating: {product.rating} ★</p>
-            <button style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+            <p style={{ fontSize: '14px',  }}>{product.offer}</p>
+            <p style={{ fontSize: '16px',  }}>Rating: {product.rating} ★</p>
+            <button style={{ padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
               Add to Cart
             </button>
           </div>
