@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const themeSchema = new mongoose.Schema(
   {
@@ -18,10 +18,11 @@ const themeSchema = new mongoose.Schema(
     themeId: { type: String, required: true },
     sidebarName: { type: String, required: true },
     BtnBgColor: { type: String, required: true },
+    status: { type: String, default: 0 },
   },
   {
     timestamps: true, // Automatically adds createdAt and updatedAt
   }
 );
 
-module.exports = mongoose.model('Theme', themeSchema);
+module.exports = mongoose.model("Theme", themeSchema);

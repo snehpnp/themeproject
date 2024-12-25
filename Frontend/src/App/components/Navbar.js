@@ -13,7 +13,6 @@ const Navbar = ({ headerStatus, toggleHeaderStatus }) => {
   const toggleNotification = () => setShowNotification(!showNotification);
 
   const Togglebtn = (data) => {
-    console.log(data);
     if(data === "profile"){
       toggleDropdown();
       setShowNotification(false);

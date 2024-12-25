@@ -22,6 +22,8 @@ import Reacttabel from "./Tabels/Reacttable";
 import Product from "../pages/Product";
 import Chart from "../pages/Chart";
 import Theme from "../pages/Theme";
+import AddTheme from "../pages/AddTheme";
+import Edittheme from "../pages/EditTheme";
 
 export default function App() {
   return (
@@ -46,6 +48,8 @@ export default function App() {
       <Route path="/products" element={<Product />} />
       <Route path="/charts" element={<Chart />} />
       <Route path="/themes" element={<Theme />} />
+      <Route path="/add-theme" element={<AddTheme />} />
+      <Route path="/edit-theme/:id" element={<Edittheme />} />
     </Routes>
   );
 }
