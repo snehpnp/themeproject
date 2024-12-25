@@ -22,7 +22,20 @@ export default function App() {
       let sidebar = theme.sidebarColor?.includes("gradient") || false;
       let navbar = theme.navbarColor?.includes("gradient") || false;
       let font = theme.fontColor?.includes("gradient") || false;
-      
+
+      const buttons = document.querySelectorAll("button");
+
+      console.log(theme.BtnBgColor);
+
+      buttons.forEach((button) => {
+        if (button) {
+          if (font) {
+            button.style.background = theme.BtnBgColor;
+          } else {
+            button.style.backgroundColor = theme.BtnBgColor;
+          }
+        }
+      });
 
       if (container) {
         if (navbar) {

@@ -74,7 +74,7 @@ const glassContainer = {
 
 const glassTitle = {
   marginBottom: '20px',
-  color: '#fff',
+
   fontSize: '24px',
 };
 
@@ -85,7 +85,6 @@ const glassInput = {
   marginBottom: '15px',
   borderRadius: '8px',
   width: '100%',
-  color: '#333',
   fontSize: '14px',
 };
 
@@ -93,7 +92,7 @@ const glassCheckboxLabel = {
   display: 'block',
   textAlign: 'left',
   marginBottom: '15px',
-  color: '#fff',
+ 
 };
 
 const glassCheckbox = {
@@ -101,8 +100,7 @@ const glassCheckbox = {
 };
 
 const glassButton = {
-  background: 'linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)',
-  color: '#fff',
+
   padding: '10px',
   width: '100%',
   border: 'none',

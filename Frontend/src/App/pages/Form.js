@@ -108,8 +108,7 @@ function DynamicForm() {
             width: '100%',
             padding: '10px',
             borderRadius: '4px',
-            backgroundColor: '#007bff',
-            color: 'white',
+         
             border: 'none',
             cursor: 'pointer'
           }}

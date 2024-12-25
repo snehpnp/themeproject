@@ -61,7 +61,7 @@ const cardInput = {
 
 const cardButton = {
   background: '#0078D7',
-  color: '#fff',
+
   padding: '10px',
   width: '100%',
   border: 'none',

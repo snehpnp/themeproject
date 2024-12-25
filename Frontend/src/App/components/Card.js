@@ -5,7 +5,7 @@ const GradientCard = () => {
     background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     borderRadius: '12px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-    color: 'white',
+  
     padding: '20px',
     textAlign: 'center',
     maxWidth: '300px',
@@ -21,7 +21,7 @@ const GradientCard = () => {
 
   const buttonStyle = {
     background: 'white',
-    color: '#4facfe',
+ 
     border: 'none',
     padding: '8px 16px',
     fontSize: '1rem',
@@ -32,7 +32,7 @@ const GradientCard = () => {
 
   const buttonHoverStyle = {
     background: '#4facfe',
-    color: 'white'
+  
   };
 
   return (
