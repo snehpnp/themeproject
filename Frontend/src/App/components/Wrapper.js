@@ -1,10 +1,7 @@
 import React, { useState, useEffect, use } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import ThemeProvider from "../Themes/ThemeProvider";
-import { Routes, Route } from "react-router-dom";
-import Settings from "../pages/Settings";
-import Home from "..//pages/Home";
+
 
 export default function App() {
   const savedTheme = localStorage.getItem("theme");
@@ -116,11 +113,10 @@ export default function App() {
         element.style.fontFamily = fontFamily;
       });
     }
-  }, []);
+  }, [savedTheme]);
 
   return (
-  
-      <div className="Wrapper">
+    <div className="Wrapper">
       {savedTheme && (
         <>
           <Navbar />

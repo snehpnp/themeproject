@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Content from "./Content";
+import Content from "../Routes/Route";
 import { Admin } from "./Sidebar_config";
 
 import {

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Contnet from "../../components/Content";
+import { GetAllThemesApi, GetThemeByIdApi } from "../../Services/Themes/Theme";
 
 function Theme() {
   const navigate = useNavigate();
@@ -27,9 +29,8 @@ function Theme() {
 
   const GetAllThemes = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/themes");
-
-      setThemes(response.data.data);
+      const response = await GetAllThemesApi();
+      setThemes(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -38,13 +39,13 @@ function Theme() {
   // Fetch and store the selected theme in localStorage
   const applyTheme = async (id) => {
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/themes/${id}`
-      );
-      const themeData = response.data.data;
+      const response = await GetThemeByIdApi(id);
+
+      const themeData = response.data;
 
       localStorage.setItem("theme", JSON.stringify(themeData));
       window.location.reload();
+      
     } catch (error) {
       console.error("Error applying theme:", error);
     }
@@ -55,73 +56,80 @@ function Theme() {
   }, []);
 
   return (
-    <div style={{ padding: "20px" }}>
-      {/* Heading */}
-      <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Themes</h1>
+    <Contnet
+      Page_title="Themes"
+      button_title="Add Theme"
+      button_status={false}
+      route="/add-theme"
+    >
+      <div style={{ padding: "20px" }}>
+        {/* Heading */}
+        <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Themes</h1>
 
-      {/* Add Theme Button */}
-      <div style={{ textAlign: "right", marginBottom: "10px" }}>
-        <button
-          onClick={handleAddTheme}
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#4caf50",
-            color: "#fff",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
-          + Add Theme
-        </button>
-      </div>
+        {/* Add Theme Button */}
+        <div style={{ textAlign: "right", marginBottom: "10px" }}>
+          <button
+            onClick={handleAddTheme}
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#4caf50",
+              color: "#fff",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            + Add Theme
+          </button>
+        </div>
 
-      {/* Table Wrapped in a Card */}
-      <div style={cardStyle}>
-        <h3 style={cardHeaderStyle}>Theme List</h3>
-        <table style={{ width: "100%", borderCollapse: "collapse" }}>
-          <thead>
-            <tr>
-              <th style={tableHeaderStyle}>ID</th>
-              <th style={tableHeaderStyle}>Theme Name</th>
-              <th style={tableHeaderStyle}>Active</th>
-              <th style={tableHeaderStyle}>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {themes.map((theme, index) => (
-              <tr key={theme.id}>
-                <td style={tableCellStyle}>{index + 1}</td>
-                <td style={tableCellStyle}>{theme.ThemeName}</td>
-                <td style={tableCellStyle}>
-                  {theme.status ? "Active" : "Inactive"}
-                </td>
-                <td style={tableCellStyle}>
-                  <button
-                    onClick={() => handleEdit(theme._id)}
-                    style={editButtonStyle}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(theme._id)}
-                    style={deleteButtonStyle}
-                  >
-                    Delete
-                  </button>
-                  <button
-                    onClick={() => applyTheme(theme._id)}
-                    style={applyButtonStyle}
-                  >
-                    Apply
-                  </button>
-                </td>
+        {/* Table Wrapped in a Card */}
+        <div style={cardStyle}>
+          <h3 style={cardHeaderStyle}>Theme List</h3>
+          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+            <thead>
+              <tr>
+                <th style={tableHeaderStyle}>ID</th>
+                <th style={tableHeaderStyle}>Theme Name</th>
+                <th style={tableHeaderStyle}>Active</th>
+                <th style={tableHeaderStyle}>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {themes.map((theme, index) => (
+                <tr key={theme.id}>
+                  <td style={tableCellStyle}>{index + 1}</td>
+                  <td style={tableCellStyle}>{theme.ThemeName}</td>
+                  <td style={tableCellStyle}>
+                    {theme.status ? "Active" : "Inactive"}
+                  </td>
+                  <td style={tableCellStyle}>
+                    <button
+                      onClick={() => handleEdit(theme._id)}
+                      style={editButtonStyle}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(theme._id)}
+                      style={deleteButtonStyle}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      onClick={() => applyTheme(theme._id)}
+                      style={applyButtonStyle}
+                    >
+                      Apply
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </Contnet>
   );
 }
 

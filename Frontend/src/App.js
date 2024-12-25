@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 
 import Wrapper from "./App/components/Wrapper";
 
-export default function App() {
+const App = () => {
+
+
   return (
     <div className="App">
       <Wrapper />
     </div>
   );
-}
+};
+
+export default App;
