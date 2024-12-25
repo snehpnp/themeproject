@@ -1,30 +1,35 @@
+
+
 const Admin = [
   {
     name: "Dashboard",
     label: "Dashboard",
-    icon: "fa fa-tachometer",
+    icon: "LayoutDashboard",
     link: "/dashboard",
     children: [],
   },
   {
     name: "Users",
     label: "Users",
-    icon: "fa fa-users",
+    icon: "Users",
     link: "/users",
     children: [
       {
         name: "All Users",
         label: "All Users",
+        icon: "Users",
         link: "/users",
       },
       {
         name: "Add User",
         label: "Add User",
+        icon: "UserRoundPlus",
         link: "/users/add",
       },
       {
         name: "Edit User",
         label: "Edit User",
+        icon: "UserPen",
         link: "/users/edit/:id",
       },
     ],
@@ -32,37 +37,43 @@ const Admin = [
   {
     name: "Tables",
     label: "Tables",
-    icon: "fa fa-table",
+    icon: "FolderClock",
     link: "/tables",
     children: [
       {
         name: "Basic Table",
         label: "Basic Table",
+        icon: "FolderClock",
         link: "/tables/basic",
       },
       {
         name: "React Table",
         label: "React Table",
+        icon: "FolderClock",
         link: "/tables/reacttable",
       },
       {
         name: "Bordered Table",
         label: "Bordered Table",
+        icon: "FolderClock",
         link: "/tables/bordered",
       },
       {
         name: "Striped Table",
         label: "Striped Table",
+        icon: "FolderClock",
         link: "/tables/striped",
       },
       {
         name: "Hover Table",
         label: "Hover Table",
+        icon: "FolderClock",
         link: "/tables/hover",
       },
       {
         name: "Card Table",
         label: "Card Table",
+        icon: "FolderClock",
         link: "/tables/card",
       },
     ],
@@ -70,65 +81,69 @@ const Admin = [
   {
     name: "Charts",
     label: "Charts",
-    icon: "fa fa-chart-bar",
+    icon: "CandlestickChart",
     link: "/charts",
     children: [],
   },
-
   {
     name: "Modals",
     label: "Modals",
-    icon: "fa fa-window-restore",
+    icon: "EthernetPort",
     link: "/modals",
     children: [],
   },
   {
     name: "Forms",
     label: "Forms",
-    icon: "fa fa-file",
+    icon: "ClipboardType",
     link: "/forms",
     children: [
       {
         name: "Basic Form",
         label: "Basic Form",
+        icon: "ClipboardType",
         link: "/forms/classic",
       },
       {
-        name: "Modern  Form",
-        label: "Modern  Form",
-        link: "/forms/Modern ",
+        name: "Modern Form",
+        label: "Modern Form",
+        icon: "ClipboardType",
+        link: "/forms/modern",
       },
       {
         name: "Glassmorphism Form",
         label: "Glassmorphism Form",
-        link: "/forms/Glassmorphism",
+        icon: "ClipboardType",
+        link: "/forms/glassmorphism",
       },
       {
-        name: "Floating  Form",
-        label: "Floating  Form",
-        link: "/forms/Floating ",
+        name: "Floating Form",
+        label: "Floating Form",
+        icon: "ClipboardType",
+        link: "/forms/floating",
       },
       {
-        name: "Dark theme  Form",
-        label: "Dark theme  Form",
-        link: "/forms/Darktheme",
+        name: "Dark Theme Form",
+        label: "Dark Theme Form",
+        icon: "ClipboardType",
+        link: "/forms/darktheme",
       },
     ],
   },
-
   {
     name: "Products",
     label: "Products",
-    icon: "fa fa-product-hunt",
+    icon: "ShoppingCart",
     link: "/products",
     children: [],
   },
   {
     name: "Settings",
     label: "Settings",
-    icon: "fa fa-cog",
+    icon: "Cog",
     link: "/settings",
     children: [],
   },
 ];
-module.exports = { Admin };
+
+export { Admin };

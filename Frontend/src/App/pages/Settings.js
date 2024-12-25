@@ -23,6 +23,7 @@ const Settings = () => {
     fontFamily: "Arial",
     navbarPosition: "Header",
     themeId: "1",
+    sidebarName: "1",
   });
 
   // On Component Mount: Load theme from localStorage
@@ -48,16 +49,19 @@ const Settings = () => {
       fontFamily: theme.fontFamily || "Arial",
       navbarPosition: theme.navbarPosition || "Header",
       themeId: theme.themeId || "1",
+      sidebarName: theme.sidebarName || "1",
     });
   }, []);
 
+ 
+
   return (
-    <Container>
+    <Container id="app" style={{ marginTop: "50px", color: "black" }}>
       <h2 className="my-4">Settings Page</h2>
 
       <Formik
         initialValues={initialValues}
-        enableReinitialize={true} // Ensure Formik updates with state changes
+        enableReinitialize={true}
         onSubmit={(values) => {
           const updatedValues = {
             ...values,
@@ -70,7 +74,6 @@ const Settings = () => {
             fontColor: values.fontColor,
           };
 
-          console.log("Updated Theme:", updatedValues);
           localStorage.setItem("theme", JSON.stringify(updatedValues));
           window.location.reload();
         }}
@@ -91,7 +94,10 @@ const Settings = () => {
                           name="sidebarMode"
                           checked={!isGradient.sidebar}
                           onChange={() =>
-                            setIsGradient((prev) => ({ ...prev, sidebar: false }))
+                            setIsGradient((prev) => ({
+                              ...prev,
+                              sidebar: false,
+                            }))
                           }
                         />
                         Solid
@@ -102,7 +108,10 @@ const Settings = () => {
                           name="sidebarMode"
                           checked={isGradient.sidebar}
                           onChange={() =>
-                            setIsGradient((prev) => ({ ...prev, sidebar: true }))
+                            setIsGradient((prev) => ({
+                              ...prev,
+                              sidebar: true,
+                            }))
                           }
                         />
                         Gradient
@@ -117,7 +126,8 @@ const Settings = () => {
                     ) : (
                       <div className="mt-3">
                         <label>Sidebar Gradient Start: </label>
-                        <Field name="sidebarGradientStart" type="color" /><br/>
+                        <Field name="sidebarGradientStart" type="color" />
+                        <br />
                         <label>Sidebar Gradient End: </label>
                         <Field name="sidebarGradientEnd" type="color" />
                         <div
@@ -147,7 +157,10 @@ const Settings = () => {
                           name="navbarMode"
                           checked={!isGradient.navbar}
                           onChange={() =>
-                            setIsGradient((prev) => ({ ...prev, navbar: false }))
+                            setIsGradient((prev) => ({
+                              ...prev,
+                              navbar: false,
+                            }))
                           }
                         />
                         Solid
@@ -173,7 +186,8 @@ const Settings = () => {
                     ) : (
                       <div className="mt-3">
                         <label>Navbar Gradient Start: </label>
-                        <Field name="navbarGradientStart" type="color" /><br/>
+                        <Field name="navbarGradientStart" type="color" />
+                        <br />
                         <label>Navbar Gradient End: </label>
                         <Field name="navbarGradientEnd" type="color" />
                         <div
@@ -199,28 +213,13 @@ const Settings = () => {
                       <label>Font Solid Color: </label>
                       <Field name="fontColor" type="color" />
                     </div>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-
-            <Row>
-              {/* Sidebar Position & Font Settings Card */}
-              <Col md={6} lg={4} className="mb-4">
-                <Card>
-                  <Card.Body>
-                    <Card.Title>Other Settings</Card.Title>
-                    <div className="mt-3">
-                      <label>Sidebar Position: </label>
-                      <Field as="select" name="sidebarPosition" className="form-control">
-                        <option value="Header">Header</option>
-                        <option value="Sidebar">Sidebar</option>
-                      </Field>
-                    </div>
-
                     <div className="mt-3">
                       <label>Font: </label>
-                      <Field as="select" name="fontFamily" className="form-control">
+                      <Field
+                        as="select"
+                        name="fontFamily"
+                        className="form-control"
+                      >
                         <option value="Arial">Arial</option>
                         <option value="Times New Roman">Times New Roman</option>
                         <option value="Courier New">Courier New</option>
@@ -231,15 +230,80 @@ const Settings = () => {
                         <option value="Tahoma">Tahoma</option>
                         <option value="Trebuchet MS">Trebuchet MS</option>
                         <option value="Lucida Console">Lucida Console</option>
-                        <option value="Palatino Linotype">Palatino Linotype</option>
+                        <option value="Palatino Linotype">
+                          Palatino Linotype
+                        </option>
                         <option value="Arial Black">Arial Black</option>
                         <option value="Consolas">Consolas</option>
                       </Field>
                     </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+
+            <Row>
+              {/* Sidebar Position & Font Settings Card */}
+              <Col md={6} lg={4} className="mb-4">
+                <Card>
+                  <Card.Body>
+                    <Card.Title>Sidebar Settings</Card.Title>
+                    <div className="mt-3">
+                      <label>Sidebar Position: </label>
+                      <Field
+                        as="select"
+                        name="sidebarPosition"
+                        className="form-control"
+                      >
+                        <option value="Header">Header</option>
+                        <option value="Sidebar">Sidebar</option>
+                      </Field>
+                    </div>
+
+                    <div className="mt-3">
+                      <label>Sidebar Name: </label>
+                      <Field
+                        as="select"
+                        name="sidebarName"
+                        className="form-control"
+                      >
+                        <option value="1">Main</option>
+                        <option value="2">Card Sidebar</option>
+                        <option value="3">New Sidebar</option>
+
+                      </Field>
+                    </div>
+
+                 
+                  </Card.Body>
+                </Card>
+              </Col>
+
+              <Col md={6} lg={4} className="mb-4">
+                <Card>
+                  <Card.Body>
+                    <Card.Title>Theme Settings</Card.Title>
+                    <div className="mt-3">
+                      <label>Sidebar Position: </label>
+                      <Field
+                        as="select"
+                        name="sidebarPosition"
+                        className="form-control"
+                      >
+                        <option value="Header">Header</option>
+                        <option value="Sidebar">Sidebar</option>
+                      </Field>
+                    </div>
+
+                   
 
                     <div className="mt-3">
                       <label>Dashboard Name: </label>
-                      <Field as="select" name="themeId" className="form-control">
+                      <Field
+                        as="select"
+                        name="themeId"
+                        className="form-control"
+                      >
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -250,12 +314,16 @@ const Settings = () => {
                         <option value="8">8</option>
                         <option value="9">9</option>
                         <option value="10">10</option>
+                        <option value="11">11</option>
+
                       </Field>
                     </div>
                   </Card.Body>
                 </Card>
               </Col>
             </Row>
+
+
 
             <Button type="submit" className="mt-4">
               Apply Changes
