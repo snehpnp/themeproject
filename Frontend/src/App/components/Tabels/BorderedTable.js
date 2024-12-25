@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Make sure Bootstrap CSS is imported
 import { Button, Form, Pagination, Row, Col } from 'react-bootstrap'; // Importing components from react-bootstrap
+import Contnet from '../Content';
 
 const BorderedTable = () => {
   const [isToggled, setIsToggled] = useState(false); // State for the toggle
@@ -35,6 +36,7 @@ const BorderedTable = () => {
   };
 
   return (
+    <Contnet Page_title="Bordered Table">
     <div>
       {/* Table */}
       <table className="table table-bordered">
@@ -113,6 +115,7 @@ const BorderedTable = () => {
         </Col>
       </Row>
     </div>
+    </Contnet>
   );
 };
 

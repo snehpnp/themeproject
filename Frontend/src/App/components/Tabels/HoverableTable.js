@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa'; // Edit and Delete icons
 import Switch from 'react-switch'; // Corrected import for default export
+import Contnet from '../Content';
 
 const HoverableTable = () => {
   const [isActive, setIsActive] = useState(false);
@@ -13,6 +14,7 @@ const HoverableTable = () => {
   ];
 
   return (
+    <Contnet Page_title="Hoverable Table">
     <div>
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
@@ -58,6 +60,7 @@ const HoverableTable = () => {
         <button style={{ padding: '5px 10px' }}>Next</button>
       </div>
     </div>
+    </Contnet>
   );
 };
 

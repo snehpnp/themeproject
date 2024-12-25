@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa';
+import Contnet from '../Content';
 
 const CardTable = () => {
   const initialData = [
@@ -127,6 +128,7 @@ const CardTable = () => {
   };
 
   return (
+    <Contnet Page_title="Card Table" button_title="Back" button_status={false}>
     <div>
       <div style={styles.container}>
         {currentItems.map((item) => (
@@ -173,6 +175,7 @@ const CardTable = () => {
         </button>
       </div>
     </div>
+    </Contnet>
   );
 };
 
