@@ -19,6 +19,8 @@ const themeSchema = new mongoose.Schema(
     sidebarName: { type: String, required: true },
     BtnBgColor: { type: String, required: true },
     status: { type: String, default: 0 },
+    btnTxtColor: { type: String, required: true },
+    HeadingColor: { type: String, required: true },
   },
   {
     timestamps: true, // Automatically adds createdAt and updatedAt

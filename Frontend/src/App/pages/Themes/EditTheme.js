@@ -52,26 +52,22 @@ const Edittheme = () => {
       if (response.data.status) {
         window.location.href = "/#/themes";
       } else {
-
       }
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   const GetTheme = async () => {
     try {
       const response = await axios.get(
         `http://localhost:5000/api/themes/${id}`
-      )
+      );
       setInitialValues(response.data.data);
       setIsGradient((prev) => ({
- 
         sidebar: response.data.data.sidebarColor.includes("gradient"),
         navbar: response.data.data.navbarColor.includes("gradient"),
         font: response.data.data.fontColor.includes("gradient"),
-        }));
-    } catch (error) {
-    }
+      }));
+    } catch (error) {}
   };
 
   useEffect(() => {

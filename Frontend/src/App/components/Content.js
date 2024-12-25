@@ -21,9 +21,9 @@ import HoverTable from "./Tabels/HoverableTable";
 import Reacttabel from "./Tabels/Reacttable";
 import Product from "../pages/Product";
 import Chart from "../pages/Chart";
-import Theme from "../pages/Theme";
-import AddTheme from "../pages/AddTheme";
-import Edittheme from "../pages/EditTheme";
+import Theme from "../pages/Themes/Theme";
+import AddTheme from "../pages/Themes/AddTheme";
+import Edittheme from "../pages/Themes/EditTheme";
 
 export default function App() {
   return (
