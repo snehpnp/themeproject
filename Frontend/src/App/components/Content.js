@@ -21,6 +21,7 @@ import HoverTable from "./Tabels/HoverableTable";
 import Reacttabel from "./Tabels/Reacttable";
 import Product from "../pages/Product";
 import Chart from "../pages/Chart";
+import Theme from "../pages/Theme";
 
 export default function App() {
   return (
@@ -44,6 +45,7 @@ export default function App() {
       <Route path="/tables/reacttable" element={<Reacttabel />} />
       <Route path="/products" element={<Product />} />
       <Route path="/charts" element={<Chart />} />
+      <Route path="/themes" element={<Theme />} />
     </Routes>
   );
 }

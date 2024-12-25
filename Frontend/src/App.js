@@ -24,15 +24,28 @@ export default function App() {
       let font = theme.fontColor?.includes("gradient") || false;
 
       const buttons = document.querySelectorAll("button");
+      const fontFamily = theme.fontFamily;
+      const allFont = document.querySelectorAll("*");
+      const fontColor = theme.fontColor;
+      // const all = document.querySelectorAll("*");
 
-      console.log(theme.BtnBgColor);
+      const all = document.querySelectorAll(
+        "*:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button)"
+      );
+
+
+      all.forEach((element) => {
+        element.style.color = fontColor;
+      });
 
       buttons.forEach((button) => {
         if (button) {
           if (font) {
             button.style.background = theme.BtnBgColor;
+            button.style.color = theme.btnTxtColor;
           } else {
             button.style.backgroundColor = theme.BtnBgColor;
+            button.style.color = theme.btnTxtColor;
           }
         }
       });
@@ -44,6 +57,7 @@ export default function App() {
           container.style.backgroundColor = theme.navbarColor;
         }
       }
+
       if (SidebarColored) {
         if (sidebar) {
           SidebarColored.style.background = theme.sidebarColor;
@@ -51,16 +65,21 @@ export default function App() {
           SidebarColored.style.backgroundColor = theme.sidebarColor;
         }
       }
-      // CHANGE ALL SOFTWARE FONT COLOR
-      const fontColor = theme.fontColor;
-      const all = document.querySelectorAll("*");
-      all.forEach((element) => {
-        element.style.color = fontColor;
-      });
+
+
+      const headings = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+      if(headings){
+        headings.forEach((heading) => {
+          if (theme.HeadingColor) {
+            heading.style.color = theme.HeadingColor;
+          } else {
+            heading.style.color = theme.fontColor;
+          }
+        });
+      }
 
       // CHANGE ALL SOFTWARE FONT FAMILY
-      const fontFamily = theme.fontFamily;
-      const allFont = document.querySelectorAll("*");
+
       allFont.forEach((element) => {
         element.style.fontFamily = fontFamily;
       });

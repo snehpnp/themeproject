@@ -143,7 +143,13 @@ const Admin = [
     icon: "Cog",
     link: "/settings",
     children: [],
-  },
+  },{
+    name: "Themes",
+    label: "Themes",
+    icon: "Cog",
+    link: "/themes",
+    children: [],
+  }
 ];
 
 export { Admin };
