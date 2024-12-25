@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 } */
+.sidebar {
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #16a085;
+  border-radius: 10px;
+}
+
+.sidebar li {
+  margin: 5px 0;
+}
+
+.sidebar a:hover {
+  color: #1abc9c;
+}
+
+.sidebar .submenu {
+  background: #34495e;
+  border-radius: 5px;
+  margin-top: 5px;
+}

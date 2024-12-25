@@ -22,7 +22,7 @@ export default function App() {
       let sidebar = theme.sidebarColor?.includes("gradient") || false;
       let navbar = theme.navbarColor?.includes("gradient") || false;
       let font = theme.fontColor?.includes("gradient") || false;
-      console.log("theme", sidebar);
+      
 
       if (container) {
         if (navbar) {

@@ -10,51 +10,8 @@ import Dashboard7 from "./Dashboard7";
 import Dashboard8 from "./Dashboard8";
 import Dashboard9 from "./Dashboard9";
 import Dashboard10 from "./Dashboard10";
+import Dashboard11 from "./Dashboard11";
 
-// const DashboardData = [
-//   {
-//     title: "Total Clients",
-//     total: 10,
-//     total_client: 10,
-//   },
-
-//   {
-//     title: "total active client",
-//     total: "$1000",
-//     total_active_client: 10,
-//   },
-//   {
-//     title: "Total Users",
-//     total: 10,
-//     total_expired_client: 10,
-//   },
-//   {
-//     title: "Total Empoyees",
-//     total: 100,
-//     total_live_client: 10,
-//   },
-//   {
-//     title: "Active Empoyees",
-//     total: 10,
-
-//   },
-//   {
-//     title: "Total Projects",
-//     total: 10,
-//   },
-//   {
-//     title: "Total Empoyees",
-//     total: 100,
-//   },
-//   {
-//     title: "Active Empoyees",
-//     total: 10,
-//   },
-//   {
-//     title: "Total Projects",
-//     total: 10,
-//   },
-// ];
 
 const DashboardData ={
   total_client: 10,
@@ -85,16 +42,27 @@ const Dashboard = () => {
 
 
   return (
-    <>
-      <div>
-        <div className="content-body">
-          <div className="container-fluid">
-            {CallDashboard(GetThemeId.themeId)}{" "}
-          
-          </div>
-        </div>
-      </div>
-    </>
+<>
+  <div className="content-body">
+    <div className="container-fluid mt-5">
+   
+      {/* <div className="row">
+        <div className="col-12">
+          <div className="card shadow-sm border-light rounded mt-5"> */}
+            {/* <div className="card-header bg-info text-white"> */}
+              {/* <h5>Dashboard Content</h5> */}
+            {/* </div> */}
+            {/* <div className="card-body"> */}
+              {CallDashboard(GetThemeId.themeId)}
+            {/* </div> */}
+          {/* </div>
+        </div> */}
+      {/* </div> */}
+    </div>
+  </div>
+</>
+
+
   );
 };
 
@@ -119,7 +87,9 @@ const CallDashboard = (id) => {
     return <Dashboard9 data={DashboardData} />;
   } else if (id == 10) {
     return <Dashboard10 data={DashboardData} />;
-  } else {
+  } else if (id == 11) {
+    return <Dashboard11 data={DashboardData} />;
+  }  else {
     return <Dashboard1 data={DashboardData} />;
   }
 };
