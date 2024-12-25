@@ -31,7 +31,7 @@ const Addtheme = () => {
   });
 
   useEffect(() => {
-    const theme = JSON.parse(localStorage.getItem("theme")) || {};
+    const theme = {};
     setIsGradient({
       sidebar: theme.sidebarColor?.includes("gradient") || false,
       navbar: theme.navbarColor?.includes("gradient") || false,
@@ -72,7 +72,6 @@ const Addtheme = () => {
       fontColor: values.fontColor,
     };
 
-    console.log("updatedValues", updatedValues);
 
     try {
       // Send data to the backend API
