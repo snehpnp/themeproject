@@ -2,7 +2,6 @@ import React, { useState, useEffect, use } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
-
 export default function App() {
   const savedTheme = localStorage.getItem("theme");
   useEffect(() => {
@@ -79,38 +78,41 @@ export default function App() {
         element.style.fontFamily = fontFamily;
       });
     } else {
-      localStorage.setItem(
-        "theme",
-        JSON.stringify({
-          navbarColor: "#ffffff",
-          sidebarColor: "#ffffff",
-          fontColor: "#080808",
-          sidebarPosition: "Sidebar",
-          fontFamily: "Arial",
-        })
-      );
+      let data = {
+        sidebarColor: "linear-gradient(to right, #1fa9ff, #000000)",
+        navbarColor: "linear-gradient(to right, #f13b3b, #000000)",
+        fontColor: "#1d1b1b",
+        sidebarGradientStart: "#1fa9ff",
+        sidebarGradientEnd: "#000000",
+        navbarGradientStart: "#f13b3b",
+        navbarGradientEnd: "#000000",
+        fontGradientStart: "#ffffff",
+        fontGradientEnd: "#000000",
+        sidebarPosition: "Sidebar",
+        fontFamily: "Comic Sans MS",
+        navbarPosition: "Header",
+        themeId: "1",
+        sidebarName: "1",
+        BtnBgColor: "#ffffff",
+        btnTxtColor: "#ffffff",
+        HeadingColor: "#ffffff",
+      };
+
+      localStorage.setItem("theme", JSON.stringify(data));
 
       const container = document.querySelector(".container-fluid");
       const SidebarColored = document.querySelector(".SidebarColored");
 
-      if (container) {
-        container.style.backgroundColor = "#ffffff";
-      }
-      if (SidebarColored) {
-        SidebarColored.style.backgroundColor = "#ffffff";
-      }
-      // CHANGE ALL SOFTWARE FONT COLOR
-      const fontColor = "#000";
-      const all = document.querySelectorAll("*");
-      all.forEach((element) => {
-        element.style.color = fontColor;
-      });
+      if (container) container.style.background = data.navbarColor;
+      if (SidebarColored) SidebarColored.style.background = data.sidebarColor;
 
-      // CHANGE ALL SOFTWARE FONT FAMILY
-      const fontFamily = "Arial";
-      const allFont = document.querySelectorAll("*");
-      allFont.forEach((element) => {
-        element.style.fontFamily = fontFamily;
+      document.body.style.color = data.fontColor;
+      document.body.style.fontFamily = data.fontFamily;
+
+      const allElements = document.querySelectorAll("*");
+      allElements.forEach((element) => {
+        element.style.color = data.fontColor;
+        element.style.fontFamily = data.fontFamily;
       });
     }
   }, [savedTheme]);
