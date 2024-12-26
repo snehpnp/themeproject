@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/alt-text */
+y/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
 import Dashboard1 from "./Dashboard1";
 import Dashboard2 from "./Dashboard2";
