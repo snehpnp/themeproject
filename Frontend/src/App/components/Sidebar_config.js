@@ -137,13 +137,13 @@ const Admin = [
     link: "/products",
     children: [],
   },
-  // {
-  //   name: "Settings",
-  //   label: "Settings",
-  //   icon: "Cog",
-  //   link: "/settings",
-  //   children: [],
-  // },
+  {
+    name: "Settings",
+    label: "Settings",
+    icon: "Cog",
+    link: "/settings",
+    children: [],
+  },
   {
     name: "Themes",
     label: "Themes",

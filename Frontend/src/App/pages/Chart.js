@@ -1,4 +1,5 @@
 import React from 'react';
+import Content from '../components/Content';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   BarChart, Bar,
@@ -30,6 +31,7 @@ const ChartPage = () => {
   };
 
   return (
+    <Content title="Chart Page">
     <div style={styles.page}>
       <h1>10 Different Types of Charts</h1>
 
@@ -183,6 +185,7 @@ const ChartPage = () => {
             </ResponsiveContainer>
         </div>
     </div>
+    </Content>
   );
 };
 
