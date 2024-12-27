@@ -24,12 +24,15 @@ import AddTheme from "../pages/Themes/AddTheme";
 import Edittheme from "../pages/Themes/EditTheme";
 
 export default function App() {
+
+
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/" element={<Dashboard />} />
 
       <Route path="/forms/classic" element={<Classicform />} />
       <Route path="/forms/Glassmorphism" element={<Glassform />} />
