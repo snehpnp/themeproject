@@ -12,6 +12,17 @@ const Navbar = ({ headerStatus, toggleHeaderStatus }) => {
   const toggleDropdown = () => setShowDropdown(!showDropdown);
   const toggleNotification = () => setShowNotification(!showNotification);
 
+  const Togglebtn = (data) => {
+    if(data === "profile"){
+      toggleDropdown();
+      setShowNotification(false);
+    }
+    if(data === "notification"){
+      toggleNotification();
+      setShowDropdown(false);
+    }
+  }
+
   return (
     <>
       {/* Navbar */}
@@ -39,7 +50,7 @@ const Navbar = ({ headerStatus, toggleHeaderStatus }) => {
             {/* Notification Icon */}
             <div
               className="notification-container"
-              onClick={toggleNotification}
+              onClick={(e)=>Togglebtn("notification")}
               style={{
                 cursor: "pointer",
                 marginLeft: "20px",
@@ -70,7 +81,7 @@ const Navbar = ({ headerStatus, toggleHeaderStatus }) => {
             {/* Profile Image */}
             <div
               className="profile-container"
-              onClick={toggleDropdown}
+              onClick={(e)=>Togglebtn("profile")}
               style={{ cursor: "pointer", marginLeft: "20px" }}
             >
               <img

@@ -1,7 +1,9 @@
 import React from 'react';
+import Contnet from '../Content';
 
 const StripedTable = () => {
   return (
+    <Contnet Page_title="Striped Table">
     <table style={{ width: '100%', borderCollapse: 'collapse' }}>
       <thead>
         <tr >
@@ -23,6 +25,7 @@ const StripedTable = () => {
         </tr>
       </tbody>
     </table>
+    </Contnet>
   );
 };
 

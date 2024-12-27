@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Content from "./Content";
+import Content from "../Routes/Route";
 import { Admin } from "./Sidebar_config";
 
 import {
@@ -457,7 +457,7 @@ const Sidebar = () => {
   className="content"
   style={{
     position: "relative",
-    height: "100vh",
+    // height: "100vh",
     width: "100%",
     overflow: "hidden",
   }}

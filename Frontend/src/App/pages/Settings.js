@@ -25,6 +25,8 @@ const Settings = () => {
     themeId: "1",
     sidebarName: "1",
     BtnBgColor: "#ffffff",
+    btnTxtColor: "#ffffff",
+    HeadingColor: "#ffffff",
   });
 
   // On Component Mount: Load theme from localStorage
@@ -52,6 +54,9 @@ const Settings = () => {
       themeId: theme.themeId || "1",
       sidebarName: theme.sidebarName || "1",
       BtnBgColor: theme.BtnBgColor || "#ffffff",
+      btnTxtColor: theme.btnTxtColor || "#ffffff",
+      HeadingColor: theme.HeadingColor || "#ffffff",
+      
     });
   }, []);
 
@@ -86,7 +91,7 @@ const Settings = () => {
               <Col md={6} lg={4} className="mb-4">
                 <Card>
                   <Card.Body>
-                    <Card.Title>Sidebar Color</Card.Title>
+                    <label>Sidebar Color</label>
                     <div>
                       <label>Sidebar Color Mode: </label>
                       <label>
@@ -210,9 +215,21 @@ const Settings = () => {
                 <Card>
                   <Card.Body>
                     <Card.Title>Font Color</Card.Title>
+                  
                     <div className="mt-3">
                       <label>Font Solid Color: </label>
                       <Field name="fontColor" type="color" />
+                    </div>
+
+
+                    <div className="mt-3">
+                      <label>Button Text Color: </label>
+                      <Field name="btnTxtColor" type="color" />
+                    </div>
+
+                    <div className="mt-3">
+                      <label>Heading Color: </label>
+                      <Field name="HeadingColor" type="color" />
                     </div>
 
                     <div className="mt-3">

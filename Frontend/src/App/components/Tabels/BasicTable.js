@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa'; // Using React Icons for edit and delete
+import Contnet from '../Content';
 
 // Sample data for the table
 const initialData = [
@@ -52,6 +53,7 @@ const BasicTable = () => {
   };
 
   return (
+    <Contnet Page_title="Basic Table">
     <div style={{ fontFamily: 'Arial, sans-serif', margin: '20px' }}>
       <table
         style={{
@@ -176,6 +178,7 @@ const BasicTable = () => {
         </button>
       </div>
     </div>
+    </Contnet>
   );
 };
 

@@ -12,8 +12,9 @@ import Dashboard9 from "./Dashboard9";
 import Dashboard10 from "./Dashboard10";
 import Dashboard11 from "./Dashboard11";
 
+import Contnet from "../Content";
 
-const DashboardData ={
+const DashboardData = {
   total_client: 10,
   total_active_client: 10,
   total_expired_client: 10,
@@ -34,35 +35,22 @@ const DashboardData ={
   all_licence: 10,
   remaining_licence: 10,
   used_licence: 10,
-}
+};
 
 const Dashboard = () => {
   var GetThemeId = JSON.parse(localStorage.getItem("theme"));
 
-
-
   return (
-<>
-  <div className="content-body">
-    <div className="container-fluid mt-5">
-   
-      {/* <div className="row">
-        <div className="col-12">
-          <div className="card shadow-sm border-light rounded mt-5"> */}
-            {/* <div className="card-header bg-info text-white"> */}
-              {/* <h5>Dashboard Content</h5> */}
-            {/* </div> */}
-            {/* <div className="card-body"> */}
-              {CallDashboard(GetThemeId.themeId)}
-            {/* </div> */}
-          {/* </div>
-        </div> */}
-      {/* </div> */}
-    </div>
-  </div>
-</>
-
-
+    <>
+      <Contnet
+        Page_title="Dashboard"
+        button_title="Add Theme"
+        button_status={false}
+        route="/add-theme"
+      >
+        {CallDashboard(GetThemeId.themeId)}
+      </Contnet>
+    </>
   );
 };
 
@@ -89,7 +77,7 @@ const CallDashboard = (id) => {
     return <Dashboard10 data={DashboardData} />;
   } else if (id == 11) {
     return <Dashboard11 data={DashboardData} />;
-  }  else {
+  } else {
     return <Dashboard1 data={DashboardData} />;
   }
 };

@@ -1,49 +1,64 @@
-import { Routes, Route } from "react-router-dom";
-import Login from "../pages/Login";
-import Settings from "../pages/Settings";
-import Home from "../pages/Home";
-// import Dashboard from "../pages/Dashboard";
-import Dashboard from "../components/Dashboard/DashbaordMain";
-import Form from "../pages/Form";
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Classicform from "./Forms/ClassicForm";
-import Glassform from "./Forms/Glassmorphism";
-
-import Darktheme from "./Forms/Darktheme";
-import Floating from "./Forms/Floating";
-import Modern from "./Forms/Modern";
-
-import BasicTable from "./Tabels/BasicTable";
-import CardTable from "./Tabels/CardTable";
-import StripedTable from "./Tabels/StripedTable";
-import BorderTable from "./Tabels/BorderedTable";
-import HoverTable from "./Tabels/HoverableTable";
-import Reacttabel from "./Tabels/Reacttable";
-import Product from "../pages/Product";
-import Chart from "../pages/Chart";
-
-export default function App() {
+const Content = ({
+  Page_title,
+  button_title,
+  Page_title_showClient,
+  button_status,
+  route,
+  ...rest
+}) => {
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/settings" element={<Settings />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+    <div className="content-body">
+      <div className="container-fluid">
+        <div className="row page-titles">
+          <div className="row mb-3">
+            <div className="col-lg-6"></div>
+          </div>
+          <ol className="breadcrumb">
+            <div className="col-lg-6">
+              <li className="breadcrumb-item">
+                <h4 className="font-w500 mb-0">{Page_title}</h4>
+                <h4 className="font-w500 mb-0">{Page_title_showClient}</h4>
+              </li>
+            </div>
 
-      <Route path="/forms/classic" element={<Classicform />} />
-      <Route path="/forms/Glassmorphism" element={<Glassform />} />
-      <Route path="/forms/Darktheme" element={<Darktheme />} />
-      <Route path="/forms/Modern" element={<Modern />} />
-      <Route path="/forms/Floating" element={<Floating />} />
+            {button_status == false ? null : (
+              <div className="col-lg-6 ">
+                <Link
+                  to={route}
+                  className="btn btn-primary float-lg-end "
+                  style={{ padding: "10px !important" }}
+                >
+                  <i
+                    className={`fa-solid  ${
+                      button_title === "Back" ? "fa-arrow-left" : "fa-plus"
+                    } `}
+                  ></i>{" "}
+                  {button_title}
+                </Link>
+              </div>
+            )}
+          </ol>
+        </div>
 
-      <Route path="/tables/basic" element={<BasicTable />} />
-      <Route path="/tables/card" element={<CardTable />} />
-      <Route path="/tables/striped" element={<StripedTable />} />
-      <Route path="/tables/bordered" element={<BorderTable />} />
-      <Route path="/tables/hover" element={<HoverTable />} />
-      <Route path="/tables/reacttable" element={<Reacttabel />} />
-      <Route path="/products" element={<Product />} />
-      <Route path="/charts" element={<Chart />} />
-    </Routes>
+        <div className="row">
+          <div className="col-xl-12">
+            <div className="row">
+              <div className="col-xl-12">
+                <div className="card form-card">
+                  <div className="card-body">
+                    <div className="form-validation">{rest.children}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default Content;

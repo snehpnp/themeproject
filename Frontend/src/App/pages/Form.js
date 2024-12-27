@@ -42,7 +42,6 @@ function DynamicForm() {
   // Handle Form Submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Submitted:', formData);
     alert('Form Submitted! Check the console for details.');
   };
 
